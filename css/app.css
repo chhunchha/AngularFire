@@ -1,0 +1,88 @@
+body {
+	padding: 10px;
+	font-size: 16px;
+	font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
+	font-weight: 300;
+}
+
+button {
+	border: none;
+    height: 30px;
+    width: 90px;
+}
+
+
+/****************/
+
+.heading-lbl {
+	font-weight: 500;
+	font-size: 18px;
+	margin-top: 5px;
+}
+
+.sc-float-left {
+	float: left;
+}
+
+.sc-float-right {
+	float: right;
+}
+
+/*****************/
+
+.header {
+	width: 100%;
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 50px;
+	background: #e5e5e5;
+}
+
+.content {
+	height: calc(100% - 50px);
+	position: absolute;
+	top: 50px;
+	left: 0px;
+	width: 100%;
+	overflow: hidden;
+	background: #f3f3f3;
+	padding: 20px;
+}
+
+.authButtons {
+	margin: 10px;
+	white-space: nowrap;
+	display: inline-block;
+	float:right;
+}
+
+.socialAuthButton {
+	width: 30px;
+	height: 30px;
+}
+
+.authButton {
+	display: inline-block;
+}
+
+
+.logged-in-user-info {
+	display: inline-block;
+	white-space: nowrap;
+	margin: 2.5px 0 0 10px;
+}
+
+.profileImage {
+	height: 45px;
+	width: 45px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+.userName {
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 20px;
+	font-weight: 500;
+}

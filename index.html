@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html ng-app="fireLearning">
+	<head>
+		<meta charset="UTF-8">
+		<title>Fire Learning</title>
+
+		<!-- Firebase -->
+		<script src="https://cdn.firebase.com/js/client/2.2.7/firebase.js"></script>
+
+		<!-- Angular -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-route.js"></script>
+	
+		<!-- AngularFire -->
+		<script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
+		<script src="js/app.js"></script>
+
+		<link rel="stylesheet" href="css/app.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+	</head>
+	<body ng-controller="AuthCtrl">
+		<div class="header">
+			<div ng-hide="authData" class="authButtons">
+				<div class="authButton"><img class="socialAuthButton" src="resources/images/g+128.png" ng-click="login('google')"/></div>
+
+				<div class="authButton"><img class="socialAuthButton" src="resources/images/GitHub-Mark-120px-plus.png" ng-click="login('github')"/></div>
+
+				<div class="authButton"><img class="socialAuthButton" src="resources/images/FB-f-Logo__blue_100.png" ng-click="login('facebook')"/></div>
+
+				<button class="btn-primary authButton" ng-click="login('firebase')">Login</button>
+			</div>			
+			
+			<div ng-show="authData" class="authButtons">
+				<button class="btn-primary authButton" ng-click="logout()">Logout</button>			
+			</div>
+
+			<div ng-show="authData" class="sc-float-left logged-in-user-info">
+				<img class="profileImage" ng-src="{{getUserImage()}}"/>
+				<div class="userName"> {{cachedProfile.name}} </div>
+			</div>
+		</div>
+		<div class="content" ng-show="authData">
+		
+		</div>
+	</body>
+</html>
