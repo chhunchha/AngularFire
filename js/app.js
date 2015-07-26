@@ -38,14 +38,11 @@ app.config(['$routeProvider', '$locationProvider',function($routeProvider, $loca
 	// 	}
 	// );
 }]);
+var app = angular.module("fireLearning", ["firebase"]);
 
 app.factory("Auth", function($firebaseAuth){
 	var ref = new Firebase("https://fire-learning.firebaseio.com");
 	return $firebaseAuth(ref);
-});
-
-app.controller("SamplePage1Controller", function(){
-	$scope.items = [1, 2, 3, 4];
 });
 
 app.controller("AuthCtrl", function($scope, Auth, $location){
