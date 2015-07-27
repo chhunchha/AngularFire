@@ -36,7 +36,10 @@
 
 			<div ng-show="authData" class="sc-float-left logged-in-user-info">
 				<img class="profileImage" ng-src="{{getUserImage()}}"/>
-				<div class="userName"> {{cachedProfile.name}} </div>
+				<div class="headerField">
+					<div class="userName"> {{cachedProfile.name}} </div>
+					<div class="email"> {{cachedProfile.email}}</div>
+				</div>
 			</div>
 		</div>
 		<div class="content" ng-show="authData">
