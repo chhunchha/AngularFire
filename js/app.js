@@ -1,4 +1,5 @@
 var app = angular.module("fireLearning", ["firebase","ngRoute"]);
+var ref = new Firebase("https://fire-learning.firebaseio.com");
 
 app.config(['$routeProvider', '$locationProvider',function($routeProvider, $locationProvider){
 	$routeProvider
@@ -41,7 +42,6 @@ app.config(['$routeProvider', '$locationProvider',function($routeProvider, $loca
 var app = angular.module("fireLearning", ["firebase"]);
 
 app.factory("Auth", function($firebaseAuth){
-	var ref = new Firebase("https://fire-learning.firebaseio.com");
 	return $firebaseAuth(ref);
 });
 
@@ -53,6 +53,7 @@ app.controller("AuthCtrl", function($scope, Auth, $location){
 		$scope.authData = authData;
 		if(authData) {
 			$scope.cachedProfile = getCachedProfile();
+			createUser();
 			//$location.path("/authenticated");
 		}
 		console.log($scope.authData);
@@ -67,6 +68,25 @@ app.controller("AuthCtrl", function($scope, Auth, $location){
 
 	$scope.logout = function() {
 		Auth.$unauth();
+	}
+
+	var createUser = function() {
+		ref.createUser($scope.cachedProfile, function(error, userData) {
+			if (error) {
+	 			switch (error.code) {
+					case "EMAIL_TAKEN":
+						console.log("The new user account cannot be created because the email is already in use.");
+						break;
+					case "INVALID_EMAIL":
+						console.log("The specified email is not a valid email.");
+						break;
+					default:
+						console.log("Error creating user:", error);
+				}
+			} else {
+				console.log("Successfully created user account with uid:", userData.uid);
+			}
+		});
 	}
 
 	var getCachedProfile = function() {

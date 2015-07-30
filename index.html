@@ -16,7 +16,8 @@
 		<script src="js/app.js"></script>
 
 		<link rel="stylesheet" href="css/app.css">
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">    
+
 	</head>
 	<body ng-controller="AuthCtrl">
 		<div class="header">
@@ -27,11 +28,11 @@
 
 				<div class="authButton"><img class="socialAuthButton" src="resources/images/FB-f-Logo__blue_100.png" ng-click="login('facebook')"/></div>
 
-				<button class="btn-primary authButton" ng-click="login('firebase')">Login</button>
+				<button class="loginButton authButton" ng-click="login('firebase')">Login</button>
 			</div>			
 			
 			<div ng-show="authData" class="authButtons">
-				<button class="btn-primary authButton" ng-click="logout()">Logout</button>			
+				<button class="loginButton authButton" ng-click="logout()">Logout</button>			
 			</div>
 
 			<div ng-show="authData" class="sc-float-left logged-in-user-info">
